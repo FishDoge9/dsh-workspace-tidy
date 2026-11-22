@@ -5,6 +5,14 @@
   "type": "module",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FishDoge9/dsh-workspace-tidy.git"
+  },
+  "homepage": "https://github.com/FishDoge9/dsh-workspace-tidy#readme",
+  "bugs": {
+    "url": "https://github.com/FishDoge9/dsh-workspace-tidy/issues"
+  },
   "keywords": [
     "dsh",
     "dsh-plugin",
