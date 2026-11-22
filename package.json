@@ -1,0 +1,46 @@
+{
+  "name": "dsh-workspace-tidy",
+  "version": "3.2.5",
+  "description": "DSH 插件：AI 每回合结束后自动整理工作区——回收临时文件、按项目归位产物、其他对话的产物各进一个目录，并留下整理记录与一键撤销脚本。设置页可开关、改提示词与整理规则。",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "workspace",
+    "tidy",
+    "organize"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "icon": "./icon.svg",
+  "files": [
+    "index.js",
+    "client.js",
+    "organize.js",
+    "settings.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "icon.svg",
+    "locale/*.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}

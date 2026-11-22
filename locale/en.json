@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Workspace Auto-Tidy",
+    "description": "After every AI turn, files new root-level artifacts into the NN_project folders, clears temp files, and writes a tidy log plus a one-command undo script."
+  }
+}

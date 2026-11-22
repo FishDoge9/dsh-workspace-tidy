@@ -1,0 +1,31 @@
+# dsh-workspace-tidy v2 —— AI 回合结束后自动整理工作区
+#
+# 规则只做确定安全的事（回收临时文件、清空目录、记快照）；
+# 归位判断交给模型：每回合结束时把「根目录待归位清单」交给 AI，由它调用 tidy_workspace 移动。
+# 想改行为就改下面的 config（未知键忽略，缺省用 organize.js 的 DEFAULTS 兜底）。
+
+- insert:
+    - id: workspace-tidy
+      name: dsh-workspace-tidy
+      config:
+        enabled: true
+        # root：只在主会话回合结束时整理；all：子代理也整理
+        scope: root
+        # 让 AI 判断归属（关掉就只清理 + 写 00_索引/待整理.md）
+        aiTidy: true
+        # 是否把根目录的历史遗留一起交给 AI。首次整理后自动关闭；
+        # 需要一次性清理存量时改成 true。
+        backlog: false
+        # 同一会话两次自动整理的最小间隔（毫秒）
+        cooldownMs: 5000
+        # 连续多少次没有进展后改为只写清单
+        maxAttempts: 3
+        junk: true
+        removeEmptyDirs: true
+        maxDepth: 2
+        timeoutMs: 20000
+        indexDirName: 00_索引
+        stateDirName: .workspace-tidy
+        undoScriptName: 撤销自动整理.ps1
+        mapFile: 工作区导航.md
+        prompt: true
