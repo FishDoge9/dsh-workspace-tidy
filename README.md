@@ -5,6 +5,32 @@ AI 每执行完一个回合，自动把工作区收拾一遍的 DSH 插件。
 > v2 起分工变了：**安全清理是插件的事，归位判断是模型的事**。
 > 规则不再按文件名关键词搬文件——那会把同一个项目的产物拆散，还会制造 `(2)` 副本。
 
+## 安装
+
+要求：DeepSeek Harness 0.2+（有 Settings → Plugins 即可），Node ≥ 22。
+
+**图形界面**
+
+1. 设置（左下角）→ Plugins → Add plugin，填仓库地址
+   `https://github.com/FishDoge9/dsh-workspace-tidy`
+2. 启用 `dsh-workspace-tidy`，重启 DSH
+3. 打开 **设置 → 自动整理** 看到页面即成功
+
+**命令行**
+
+```bash
+# 跟主分支最新
+dsh plugin --profile <profile> add github:FishDoge9/dsh-workspace-tidy
+
+# 钉版本（推荐）
+dsh plugin --profile <profile> add github:FishDoge9/dsh-workspace-tidy#v3.2.5
+
+# 或直接吃 tag 压缩包
+dsh plugin --profile <profile> add https://github.com/FishDoge9/dsh-workspace-tidy/archive/refs/tags/v3.2.5.tar.gz
+```
+
+装完在 Plugins 里确认 `dsh-workspace-tidy` 这一行是启用状态。插件没有构建步骤、没有运行时依赖，装完即用。
+
 ## 设置页
 
 **设置 → 自动整理**（`settings.section`，order 60）：
