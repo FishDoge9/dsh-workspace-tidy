@@ -11,8 +11,8 @@ AI 每执行完一个回合，自动把工作区收拾一遍的 DSH 插件。
 
 **图形界面**
 
-1. 设置（左下角）→ Plugins → Add plugin，填仓库地址
-   `https://github.com/FishDoge9/dsh-workspace-tidy`
+1. 设置（左下角）→ Plugins → Add plugin，填 `github:FishDoge9/dsh-workspace-tidy`
+   （若这一版只接受本地目录：先 `git clone https://github.com/FishDoge9/dsh-workspace-tidy`，再选那个目录）
 2. 启用 `dsh-workspace-tidy`，重启 DSH
 3. 打开 **设置 → 自动整理** 看到页面即成功
 
@@ -30,6 +30,8 @@ dsh plugin --profile <profile> add https://github.com/FishDoge9/dsh-workspace-ti
 ```
 
 装完在 Plugins 里确认 `dsh-workspace-tidy` 这一行是启用状态。插件没有构建步骤、没有运行时依赖，装完即用。
+
+**验证过的安装方式**（本机实测）：`pnpm add github:FishDoge9/dsh-workspace-tidy` 与 `pnpm add github:FishDoge9/dsh-workspace-tidy#v3.2.5` 都解析到 `3.2.5`，装出来的包含 `index.js / client.js / organize.js / settings.js / cordis.patch.yml / icon.svg / locale`，`dsh.bundle.patch` 与 `dsh.client` 字段完整。
 
 ## 设置页
 
